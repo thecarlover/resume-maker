@@ -19,8 +19,11 @@ const ResumeSchema = new mongoose.Schema({
       role: { type: String, required: true },
     },
   ], // Array of work experience
+
+  portfolio: { type: String }, // Add portfolio field
+  videoIntro: { type: String }, // Add video intro field
   createdAt: { type: Date, default: Date.now }, // Date when the resume was created
   updatedAt: { type: Date, default: Date.now }, // Date when the resume was last updated
 });
 
-export const resume = mongoose.model('resume', ResumeSchema);
+export const Resume = mongoose.model('Resume', ResumeSchema);

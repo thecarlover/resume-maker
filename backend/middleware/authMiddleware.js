@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 
 
 const authMiddleware = (req, res, next) => {
+
+
   const token = req.headers.authorization?.split(" ")[1]; // Bearer token
 
   if (!token) {
@@ -10,8 +12,10 @@ const authMiddleware = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET); // Ensure JWT_SECRET is set in your environment
-    req.userId = decoded.id; // Set the userId for later use
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY); // Ensure JWT_SECRET is set in your environment
+    req.userId = decoded.id;
+
+  
     next();
   } catch (error) {
     console.error(error);

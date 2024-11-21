@@ -5,15 +5,15 @@ import authMiddleware from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 // Create Resume (protected)
-router.route('/create').post(authMiddleware,createResume);
+router.post("/", authMiddleware, createResume);
 
 // Get Resume (protected)
-router.route('/get').post(authMiddleware,getResume);
+router.get("/:id", authMiddleware, getResume);
 
 // Update Resume (protected)
-router.route('/update').put(authMiddleware,updateResume);
+router.put("/:id", authMiddleware, updateResume);
 
 // Delete Resume (protected)
-router.route('/delete').delete(authMiddleware,deleteResume);
+router.delete("/:id", authMiddleware, deleteResume);
 
 export default router;

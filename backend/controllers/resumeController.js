@@ -1,4 +1,4 @@
-import { resume } from "../models/resumeSchema.js"; 
+import { Resume } from "../models/resumeSchema.js"; 
 import { User } from "../models/userSchema.js"; 
 
 // Create a new resume
@@ -13,7 +13,7 @@ export const createResume = async (req, res) => {
     }
 
     // Create new resume
-    const newResume = new resume({
+    const newResume = new Resume({
       userId,
       personalInfo: req.body.personalInfo,
       education: req.body.education,

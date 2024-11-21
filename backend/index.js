@@ -4,13 +4,19 @@ import userRoute from './routes/userRoute.js';
 import resumeRoute from './routes/resumeRoute.js'
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 
-
+dotenv.config();
 const app=express();
 
 
 const PORT=5050;
+
+
+
+console.log("JWT_SECRET:", process.env.JWT_SECRET_KEY);
+
 
 
 app.use(express.urlencoded({extended:true}));
